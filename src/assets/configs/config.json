@@ -1,0 +1,20 @@
+{
+    "baseUrl": "http://localhost:3000",
+    "endpoints": {
+        "users": {
+            "baseUrl": "/users"
+        },
+        "roles": {
+            "baseUrl": "/roles"
+        },
+        "articles": {
+            "baseUrl": "/articles"
+        },
+        "store": {
+            "baseUrl": "/store"
+        },
+        "sold_article": {
+            "baseUrl": "/sold_article"
+        }            
+    }
+}

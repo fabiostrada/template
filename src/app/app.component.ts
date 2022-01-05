@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AppConfig } from './core/config/app-config';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'template';
+    
+  constructor(private appConfig: AppConfig) {
+      console.log(appConfig);
+  }
+
 }
