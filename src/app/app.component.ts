@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Inject, LOCALE_ID } from '@angular/core';
 import { AppConfig } from './core/config/app-config';
 
 @Component({
@@ -8,8 +8,10 @@ import { AppConfig } from './core/config/app-config';
 })
 export class AppComponent {
     
-  constructor(private appConfig: AppConfig) {
-      console.log(appConfig);
+  constructor(private appConfig: AppConfig,
+             @Inject(LOCALE_ID) locale: string) {
+      console.log('Configuration',appConfig);
+      console.log('Locale', locale);
   }
 
 }
