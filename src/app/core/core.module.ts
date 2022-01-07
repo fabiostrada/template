@@ -1,14 +1,22 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { MaterialModule } from './material.module';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    NavBarComponent
+  ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    ...MaterialModule
+  ],
+  exports: [
+    NavBarComponent
   ]
 })
 export class CoreModule { 
