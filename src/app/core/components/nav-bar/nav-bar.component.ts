@@ -7,9 +7,4 @@ import { Component } from '@angular/core';
 })
 export class NavBarComponent {
 
-  public today: Date = new Date();
-
-  constructor(){    
-  }
-
 }
