@@ -1,6 +1,6 @@
 import { Component, Inject, LOCALE_ID } from '@angular/core';
 import { environment } from 'src/environments/environment.prod';
-import { AppConfig } from './core/config/app-config';
+import { AppConfig } from './core/configs/app-config';
 
 @Component({
   selector: 'app-root',

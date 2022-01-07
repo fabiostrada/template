@@ -6,6 +6,8 @@
         <mat-icon>home</mat-icon>
     </button>
     <span class="example-spacer"></span>    
-    <button mat-button routerLink="auth/login" aria-label="Login" role="button">Login</button>
-    <button mat-button routerLink="auth/registration" aria-label="Registration" role="button">Registration</button>
+    <ng-container *ngIf="!(this.userService.currentUser() | async)">
+        <button mat-button routerLink="auth/login" aria-label="Login" role="button">Login</button>
+        <button mat-button routerLink="auth/registration" aria-label="Registration" role="button">Registration</button>
+    </ng-container>
 </mat-toolbar>
