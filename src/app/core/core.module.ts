@@ -8,12 +8,14 @@ import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-transla
 import { HttpLoaderFactory } from '../shared/helpers/translate.helper';
 import { BaseRootModule } from '../shared/models/base.module';
 import { FooterComponent } from './components/footer/footer.component';
+import { ContainerComponent } from './components/container/container.component';
 
 
 @NgModule({
   declarations: [
     NavBarComponent,
-    FooterComponent
+    FooterComponent,
+    ContainerComponent
   ],
   imports: [
     CommonModule,
@@ -30,7 +32,8 @@ import { FooterComponent } from './components/footer/footer.component';
   ],
   exports: [
     NavBarComponent,
-    FooterComponent
+    FooterComponent,
+    ContainerComponent
   ]
 })
 export class CoreModule extends BaseRootModule<CoreModule> { 
