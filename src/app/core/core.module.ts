@@ -7,11 +7,13 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { HttpLoaderFactory } from '../shared/helpers/translate.helper';
 import { BaseRootModule } from '../shared/models/base.module';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
   declarations: [
-    NavBarComponent
+    NavBarComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +29,8 @@ import { BaseRootModule } from '../shared/models/base.module';
     })
   ],
   exports: [
-    NavBarComponent
+    NavBarComponent,
+    FooterComponent
   ]
 })
 export class CoreModule extends BaseRootModule<CoreModule> { 
