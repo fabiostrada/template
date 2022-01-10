@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { MaterialModule } from './material.module';
 import { HttpClientModule } from '@angular/common/http';
+import { RoleService } from './services/role.service';
 
 
 
@@ -32,8 +33,7 @@ export class CoreModule {
   public static forRoot() {
       return {
           ngModule: CoreModule,
-          providers: [
-
+          providers: [            
           ]
       }
   }

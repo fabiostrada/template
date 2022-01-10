@@ -5,17 +5,21 @@ import { HttpService } from 'src/app/shared/services/http.service';
 import { AppConfig } from '../configs/app-config';
 import { LocalStorageItem } from '../configs/local-storage-item';
 import { Credential } from '../models/credential';
+import { Role } from '../models/role';
 import { User } from '../models/user';
 import { LocalStorageService } from './local-storage.service';
+import { RoleService } from './role.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
+  deps: [RoleService]
 })
 export class UserService extends HttpService {
 
   constructor(private localStorageService: LocalStorageService,
               protected override appConfig: AppConfig,
-              protected override httpClient: HttpClient) { 
+              protected override httpClient: HttpClient,
+              private roleService: RoleService) { 
     super(appConfig, httpClient);
   }
 
@@ -24,18 +28,28 @@ export class UserService extends HttpService {
   }
 
   public currentUser(): Observable<User | undefined> {
-    let currentUser: User = this.localStorageService.getItem<User>(LocalStorageItem.USER);
+    let currentUser: User = this.localStorageService.getItem<User>(LocalStorageItem.USER);    
     return new Observable(observer => observer.next(!!currentUser ? currentUser : undefined));
   }
 
+  public isAdmin(): Observable<boolean> {
+    return this.currentUser()
+      .pipe(switchMap((user: User | undefined) => {
+          let isAdmin: boolean = !!user && User.isAdmin(user);
+          return new Observable(oberver => oberver.next(isAdmin));
+      })) as Observable<boolean>;
+  }
+
   public login(credential: Credential): Observable<User> {
-    debugger;
-    return this.httpClient.get<Array<User>>(`${this.baseUrl}${this.serviceUrl()}?username=${credential.username}`)
+    return this.httpClient
+        .get<Array<User>>(`${this.baseUrl}${this.serviceUrl()}?username=${credential.username}`)
         .pipe(
-          switchMap((users: Array<User>) => {
+          switchMap((users: Array<any>) => {
             if (!!users && users.length == 1) {
-              this.localStorageService.setItem<User>(users[0], LocalStorageItem.USER);
-              return new Observable(oberver => oberver.next(users[0]));
+              let roles: Array<Role> = this.roleService.getAllRoles();
+              let currentUser: User = User.build(users[0], roles);
+              this.localStorageService.setItem<User>(currentUser, LocalStorageItem.USER);
+              return new Observable(oberver => oberver.next(currentUser));
             } else {
               throw new Error('Incorrect Credentials');
             }

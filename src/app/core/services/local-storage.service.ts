@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 export class LocalStorageService {
 
   public setItem<T>(value: T, type: string): void {
+    localStorage.removeItem(type);
     localStorage.setItem(type, JSON.stringify(value));
   }
 
