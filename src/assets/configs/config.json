@@ -1,4 +1,5 @@
 {
+    "organization": "Cassa Centrale",
     "baseUrl": "http://localhost:3001",
     "endpoints": {
         "users": {

@@ -11,6 +11,7 @@ import { HttpLoaderFactory } from './shared/helpers/translate.helper';
 import { AppConfig } from './core/configs/app-config';
 import { environment } from 'src/environments/environment';
 import { BaseRootModule } from './shared/models/base.module';
+import { TranslateFactoryCustom } from './core/services/translate.service';
 @NgModule({
   declarations: [
     AppComponent
@@ -23,6 +24,7 @@ import { BaseRootModule } from './shared/models/base.module';
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,
+          //useClass: TranslateFactoryCustom,
           useFactory: HttpLoaderFactory,
           deps: [HttpClient]
       }

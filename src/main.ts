@@ -23,7 +23,7 @@ fetch(`/assets/configs/config.json?v=${environment.appVersion}`)
     registerLocaleData(localeDe);
 
     let localeBrowser: string = navigator.language || 'it';    
-    
+    console.log('MAIN TS');
     platformBrowserDynamic([
       { provide: AppConfig, useValue: config },
       { provide: LOCALE_ID, useValue: localeBrowser }

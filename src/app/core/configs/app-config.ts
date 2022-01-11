@@ -1,4 +1,7 @@
+import { Organization } from "./app-organization";
+
 export class AppConfig {
+    organization!: string;
     baseUrl!: string;
     endpoints!: {
         users: {
@@ -16,5 +19,5 @@ export class AppConfig {
         sold_article: {
             baseUrl: string
         }
-    }
+    };    
 }
