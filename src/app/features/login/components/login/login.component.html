@@ -8,20 +8,22 @@
                 </mat-form-field>
             </p>
 
+            <div *ngIf="form?.invalid && (form?.touched || form?.dirty) && username?.errors?.['required']" class="error">
+                Username is required!                    
+            </div>
+
             <p>
                 <mat-form-field>
                     <input type="password" matInput placeholder="Password" formControlName="password">
                 </mat-form-field>
             </p>
 
-            <ng-container>
-                <div *ngIf="form?.invalid && (form?.touched || form?.dirty)" class="error">
-                    Username and Password is required!                                   
-                </div>
-            </ng-container>
-
+            <div *ngIf="form?.invalid && (form?.touched || form?.dirty) && password?.errors?.['required']" class="error">                     
+                Password is required!                                                
+            </div>
+            
             <div class="button">
-                <button type="submit" mat-button>Login</button>
+                <button type="submit" mat-button [disabled]="form.invalid">Login</button>
             </div>
 
         </form>

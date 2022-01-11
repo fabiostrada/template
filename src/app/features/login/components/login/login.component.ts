@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Credential } from 'src/app/core/models/credential';
+import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -9,9 +11,9 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 export class LoginComponent implements OnInit {
 
   public form!: FormGroup;
-  public error!: string | null;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder,
+              private userService: UserService) { }
 
   ngOnInit(): void {
     this.form = this.formBuilder.group(
@@ -23,6 +25,14 @@ export class LoginComponent implements OnInit {
   }
 
   public submit(): void {
+    //this.userService.login(new Credential(username().va))
+  }
 
+  get username() {
+    return this.form.get('username');
+  }
+
+  get password() {
+    return this.form.get('password');
   }
 }
