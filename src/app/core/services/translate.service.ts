@@ -13,7 +13,7 @@ export class TranslateFactoryCustom implements TranslateLoader {
   constructor(private appConfig: AppConfig, private injector: Injector) { }
 
   getTranslation(lang: string): Observable<any> {
-    return from(fetch(`/assets/unicredit/i18n/${lang}.json?v=${environment.appVersion}`).then(response => {
+    return from(fetch(`/assets/i18n/unicredit/${lang}.json?v=${environment.appVersion}`).then(response => {
       return response.json();
     }));
   }

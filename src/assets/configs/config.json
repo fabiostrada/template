@@ -1,5 +1,5 @@
 {
-    "organization": "Cassa Centrale",
+    "organization": "unicredit",
     "baseUrl": "http://localhost:3001",
     "endpoints": {
         "users": {

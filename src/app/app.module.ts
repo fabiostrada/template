@@ -24,8 +24,8 @@ import { TranslateFactoryCustom } from './core/services/translate.service';
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,
-          //useClass: TranslateFactoryCustom,
-          useFactory: HttpLoaderFactory,
+          useClass: TranslateFactoryCustom,
+          //useFactory: HttpLoaderFactory,
           deps: [HttpClient]
       }
     })

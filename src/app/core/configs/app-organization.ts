@@ -1,4 +1,4 @@
 export enum Organization {
-    UNICREDIT = "Unicredit",
-    INTESA_SAN_PAOLO = "Intesa San Paolo"
+    UNICREDIT = "unicredit",
+    INTESA_SAN_PAOLO = "intesa_san_paolo"
 }
