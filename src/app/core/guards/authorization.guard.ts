@@ -3,6 +3,7 @@ import { ActivatedRouteSnapshot, CanActivate, CanLoad, Route, Router, RouterStat
 import { Observable, of, switchMap } from 'rxjs';
 import { rolesTypesFrom, RoleType } from 'src/app/config/app-roles';
 import { AppRoutings } from 'src/app/config/app-routing';
+import { CommonPageRouting } from 'src/app/features/common-page/configs/common-page.routing';
 import { Role } from '../models/role';
 import { User } from '../models/user';
 import { UserService } from '../services/user.service';
@@ -39,7 +40,7 @@ export class AuthorizationGuard implements CanActivate, CanLoad {
                       let result: boolean = this.allRoleTypesAreContainedIntoUserRole(rolesTypes, user.roles);
                       return result ? 
                         of(true) :
-                        of(this.router.navigate([AppRoutings.page401]));
+                        of(this.router.navigate([AppRoutings.commonpage, CommonPageRouting.page401]));
                    }
                  })) as Observable<boolean | UrlTree>;
   }

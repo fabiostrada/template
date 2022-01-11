@@ -9,6 +9,10 @@ import { ExistUser } from './core/guards/exist-user.guard';
 
 const routes: Routes = [
   {
+    path: AppRoutings.commonpage,
+    loadChildren: () => import('./features/common-page/common-page.module').then(res => res.CommonPageModule)
+  },
+  {
     path: AppRoutings.login,
     loadChildren: () => import('./features/login/login.module').then(res => res.LoginModule),
     canActivate: [ExistUser],
