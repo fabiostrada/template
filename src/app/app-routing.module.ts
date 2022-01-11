@@ -2,11 +2,15 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppRoutings } from './config/app-routing';
 import { AuthenticationGuard } from './core/guards/authentication.guard';
+import { ExistUser } from './core/guards/exist-user.guard';
+
 
 const routes: Routes = [
   {
     path: AppRoutings.login,
-    loadChildren: () => import('./features/login/login.module').then(res => res.LoginModule)
+    loadChildren: () => import('./features/login/login.module').then(res => res.LoginModule),
+    canActivate: [ExistUser],
+    canLoad: [ExistUser]
   },
   {
     path: AppRoutings.admin,

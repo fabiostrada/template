@@ -7,7 +7,7 @@ export class Credential {
 
     static of(form: FormGroup): Credential {
         let usernameControl: AbstractControl | null = form.get('username');
-        let passwordControl: AbstractControl | null = form.get('username');
+        let passwordControl: AbstractControl | null = form.get('password');
         if (!usernameControl || !passwordControl) {
             throw new Error("Username or Password is undefined");
         }
