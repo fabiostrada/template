@@ -2,10 +2,12 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
 
-# Main Commands
+# Run web app
 
-npm run start : To start application
-npm run server: To start json server
+npm run start 
+# Run Json Server
+
+npm run server
 
 ## Development server
 
