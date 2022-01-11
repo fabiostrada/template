@@ -10,9 +10,6 @@ import { UserService } from '../../services/user.service';
 export class NavBarComponent {
   
   constructor(public userService: UserService) { 
-    /*
-    this.userService.login(new Credential('orsobruno', 'xxxx')).subscribe(console.log);
-    */
   }
 
 }

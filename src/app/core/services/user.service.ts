@@ -56,4 +56,8 @@ export class UserService extends HttpService {
           })) as Observable<User>;   
   }
 
+  public logout(): void {
+    this.localStorageService.removeItem(LocalStorageItem.USER);
+  }
+
 }

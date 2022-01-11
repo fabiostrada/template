@@ -11,7 +11,7 @@ export class Credential {
         if (!usernameControl || !passwordControl) {
             throw new Error("Username or Password is undefined");
         }
-        return new Credential(usernameControl?.value, passwordControl?.value);
+        return new Credential(usernameControl.value, passwordControl.value);
     }
-    
+
 }
