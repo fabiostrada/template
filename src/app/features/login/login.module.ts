@@ -8,6 +8,8 @@ import { BaseModule } from 'src/app/shared/models/base.module';
 import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { HttpLoaderFactory } from 'src/app/shared/helpers/translate.helper';
 import { HttpClient } from '@angular/common/http';
+import { MaterialModule } from '../material.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -18,6 +20,8 @@ import { HttpClient } from '@angular/common/http';
   imports: [
     CommonModule,
     LoginRoutingModule,
+    ...MaterialModule,
+    ReactiveFormsModule,
     TranslateModule.forChild({
       loader: {
           provide: TranslateLoader,
