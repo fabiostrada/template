@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, CanLoad, Route, Router, RouterStateSnapshot, UrlSegment, UrlTree } from '@angular/router';
-import { Observable, switchMap } from 'rxjs';
+import { Observable, of, switchMap } from 'rxjs';
 import { User } from '../models/user';
 import { UserService } from '../services/user.service';
 
@@ -29,9 +29,9 @@ export class ExistUser implements CanActivate, CanLoad {
                  .pipe(switchMap((user: User | undefined) => {
                     if (!!user) {
                       let urlTreeHome: UrlTree = this.router.createUrlTree(['/']);
-                      return new Observable(observer => observer.next(urlTreeHome));
+                      return of(urlTreeHome);
                     } else {
-                      return new Observable(observer => observer.next(true));
+                      return of(true);
                     }
                  })) as Observable<boolean | UrlTree>;
   }

@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { RoleType } from './config/app-roles';
 import { AppRoutings } from './config/app-routing';
 import { AuthenticationGuard } from './core/guards/authentication.guard';
+import { AuthorizationGuard } from './core/guards/authorization.guard';
 import { ExistUser } from './core/guards/exist-user.guard';
 
 
@@ -15,20 +17,29 @@ const routes: Routes = [
   {
     path: AppRoutings.admin,
     loadChildren: () => import('./features/admin/admin.module').then(res => res.AdminModule),
-    canLoad: [AuthenticationGuard],
-    canActivate: [AuthenticationGuard]
+    canLoad: [AuthenticationGuard, AuthorizationGuard],
+    canActivate: [AuthenticationGuard, AuthorizationGuard],
+    data:{
+      roles:[RoleType.ADMIN]  
+    }
   },
   {
     path: AppRoutings.seller,
     loadChildren: () => import('./features/seller/seller.module').then(res => res.SellerModule),
-    canLoad: [AuthenticationGuard],
-    canActivate: [AuthenticationGuard]
+    canLoad: [AuthenticationGuard, AuthorizationGuard],
+    canActivate: [AuthenticationGuard, AuthorizationGuard],
+    data:{
+      roles:[RoleType.SELLER]  
+    }
   },
   {
     path: AppRoutings.buyer,
     loadChildren: () => import('./features/buyer/buyer.module').then(res => res.BuyerModule),
-    canLoad: [AuthenticationGuard],
-    canActivate: [AuthenticationGuard]
+    canLoad: [AuthenticationGuard, AuthorizationGuard],
+    canActivate: [AuthenticationGuard, AuthorizationGuard],
+    data:{
+      roles:[RoleType.BUYER]  
+    }
   }
 ];
 

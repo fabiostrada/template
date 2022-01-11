@@ -3,4 +3,5 @@ export class AppRoutings {
     public static admin = 'admin';
     public static seller = 'seller';
     public static buyer = 'buyer';
+    public static page401 = '401'
 }
