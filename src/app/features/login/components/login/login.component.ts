@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { catchError, of, tap } from 'rxjs';
 import { Credential } from 'src/app/core/models/credential';
+import { User } from 'src/app/core/models/user';
 import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
@@ -11,9 +14,11 @@ import { UserService } from 'src/app/core/services/user.service';
 export class LoginComponent implements OnInit {
 
   public form!: FormGroup;
+  public errorCallLogin: boolean = false;
 
   constructor(private formBuilder: FormBuilder,
-              private userService: UserService) { }
+              private userService: UserService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.form = this.formBuilder.group(
@@ -25,7 +30,16 @@ export class LoginComponent implements OnInit {
   }
 
   public submit(): void {
-    //this.userService.login(new Credential(username().va))
+    this.userService.login(Credential.of(this.form))   
+                    .pipe(
+                      tap((user: User) => {
+                        this.errorCallLogin = false;
+                        this.router.navigate(['/']);
+                      }),
+                      catchError(error => {
+                        this.errorCallLogin = true;
+                        return of(error);
+                    })).subscribe();
   }
 
   get username() {
