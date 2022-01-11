@@ -34,7 +34,8 @@ export class LoginComponent extends BaseComponent implements OnInit {
 
   public submit(): void {
     this.userService.login(Credential.of(this.form))   
-                    .pipe(                      
+                    .pipe(          
+                      takeUntil(this.unsubscribeAll),            
                       tap((user: User) => {
                         this.errorCallLogin = false;
                         this.router.navigate(['/']);

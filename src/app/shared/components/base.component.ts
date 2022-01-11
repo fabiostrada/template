@@ -1,8 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
-
 @Component({
-  selector: 'base-component',
+  selector: 'hello',
   template: ''
 })
 export abstract class BaseComponent implements OnDestroy {
@@ -12,8 +11,8 @@ export abstract class BaseComponent implements OnDestroy {
   constructor() { }
 
   ngOnDestroy(): void {
-    this.unsubscribeAll.next(0);
-    this.unsubscribeAll.complete();
+      this.unsubscribeAll.next(0);
+      this.unsubscribeAll.complete();
   }
 
 }
