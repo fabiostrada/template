@@ -1,13 +1,14 @@
 import { Inject, LOCALE_ID, Optional, SkipSelf } from "@angular/core";
 import { TranslateService } from "@ngx-translate/core";
+import { AppLanguage } from "src/app/config/app-language";
 import { AppConfig } from "src/app/core/configs/app-config";
 import { environment } from "src/environments/environment";
 
 export class BaseModule {
     constructor(translate: TranslateService,
                 @Inject(LOCALE_ID) locale: string) {
-        translate.setDefaultLang('en');
-        translate.use(locale);        
+        translate.setDefaultLang(AppLanguage.DEFAULT_LANGUAGE);
+        translate.use(locale);                
     }
 }
 
