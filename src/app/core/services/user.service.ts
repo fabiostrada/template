@@ -76,4 +76,8 @@ export class UserService extends HttpService {
     this.localStorageService.removeItem(LocalStorageItem.USER);
   }
 
+  public register() {
+    
+  }
+
 }

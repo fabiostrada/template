@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card *ngIf="!!form">
     <mat-card-title>Registration</mat-card-title>
     <mat-card-content>
         <form [formGroup]="form" (ngSubmit)="register()">
@@ -27,8 +27,16 @@
                     <input type="password" matInput placeholder="Repeat password" formControlName="repeatPassword">
                 </mat-form-field>
             </p>  
+            <p>
+                <mat-form-field appearance="fill" *ngIf="!!allRoles">
+                    <mat-label>Roles</mat-label>
+                    <mat-select formControlName="roleFormController" multiple>
+                        <mat-option *ngFor="let roleItem of allRoles" [value]="roleItem.id">{{roleItem.name}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </p>
             <div class="button">
-                <button type="submit" mat-button [disabled]="form.invalid">Register</button>
+                <button type="submit" mat-button [disabled]="form.invalid">Register</button>                                
             </div>                                  
         </form>
     </mat-card-content>

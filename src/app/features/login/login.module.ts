@@ -8,6 +8,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { MaterialModule } from './material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { translateModule } from 'src/app/core/helpers/translate.helper';
+import { CoreModule } from 'src/app/core/core.module';
 
 
 @NgModule({
