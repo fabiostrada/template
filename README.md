@@ -2,6 +2,15 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
 
+This is a experiment to create project oriented main best prectice of angular.io
+
+# Architecture
+
+About the architecture, the project contains the following main modules:
+
+- Core Module
+- Shared Module
+- Feature Modules
 # Run web app
 
 npm run start 
