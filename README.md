@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
 
-This is a experiment to create project oriented main best prectice of angular.io
+This is a experiment to create project oriented main best prectice of angular.io. The target of the project is create multi-tenant web apps, by using configuration files (rather than enviroments files)
 
 # Architecture
 
