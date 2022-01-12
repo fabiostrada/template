@@ -1,5 +1,5 @@
 {
-    "organization": "unicredit",
+    "organization": "organization_2",
     "baseUrl": "http://localhost:3001",
     "endpoints": {
         "users": {

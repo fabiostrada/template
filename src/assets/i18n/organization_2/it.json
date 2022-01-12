@@ -1,0 +1,12 @@
+{
+    "ORGANIZATION": "Organizzazione 2",
+    "HELLO": "Ciao {{value}}",
+    "TEST": "Io mi chiamo Fabio (unicredit)",
+    "HOME": {
+        "TITLE": "Un modo veloce per far crescere il tuo business",
+        "SUB_TITLE": "Fast e-commerce"
+    },
+    "COMMON": {
+        "ORGANIZATION": "Organizzazione"
+    }   
+}

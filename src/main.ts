@@ -9,6 +9,10 @@ import localeEn from '@angular/common/locales/en';
 import localeFr from '@angular/common/locales/fr';
 import localeDe from '@angular/common/locales/de';
 
+const transformLocale = (locale: string) : string => {
+  return locale.split('-')[0];
+}
+
 fetch(`/assets/configs/config.json?v=${environment.appVersion}`)
   .then(response => response.json())
   .then((config) => {
@@ -22,8 +26,8 @@ fetch(`/assets/configs/config.json?v=${environment.appVersion}`)
     registerLocaleData(localeFr);
     registerLocaleData(localeDe);
 
-    let localeBrowser: string = navigator.language || 'it';    
-    console.log('MAIN TS');
+    let localeBrowser: string = transformLocale(navigator.language) || 'it';    
+    
     platformBrowserDynamic([
       { provide: AppConfig, useValue: config },
       { provide: LOCALE_ID, useValue: localeBrowser }

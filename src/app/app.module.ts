@@ -11,7 +11,6 @@ import { HttpLoaderFactory } from './shared/helpers/translate.helper';
 import { AppConfig } from './core/configs/app-config';
 import { environment } from 'src/environments/environment';
 import { BaseRootModule } from './shared/models/base.module';
-import { TranslateFactoryCustom } from './core/services/translate.service';
 import { HomeComponent } from './components/home/home.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
@@ -35,9 +34,8 @@ const AngularMaterial = [
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,
-          useClass: TranslateFactoryCustom,
-          //useFactory: HttpLoaderFactory,
-          deps: [HttpClient]
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient, AppConfig]
       }
     })
   ],
