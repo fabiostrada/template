@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './components/home/home.component';
 import { RoleType } from './config/app-roles';
 import { AppRoutings } from './config/app-routing';
 import { AuthenticationGuard } from './core/guards/authentication.guard';
@@ -8,6 +9,10 @@ import { ExistUser } from './core/guards/exist-user.guard';
 
 
 const routes: Routes = [
+  {
+    path: '',
+    component: HomeComponent
+  },
   {
     path: AppRoutings.commonpage,
     loadChildren: () => import('./features/common-page/common-page.module').then(res => res.CommonPageModule)

@@ -1,0 +1,28 @@
+:host {
+    .home-card {
+        padding: 3rem;
+        margin-top: 3rem;
+        margin-left: 3rem;
+        margin-right: 3rem;
+
+        .title {
+            text-align: center;
+        }
+
+        .content {
+            text-align: center;
+            color: #8198ae;
+            font-size: 1rem;
+            margin-top: 3rem;
+        }
+
+        .buttons {
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}

@@ -12,14 +12,25 @@ import { AppConfig } from './core/configs/app-config';
 import { environment } from 'src/environments/environment';
 import { BaseRootModule } from './shared/models/base.module';
 import { TranslateFactoryCustom } from './core/services/translate.service';
+import { HomeComponent } from './components/home/home.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
+
+
+const AngularMaterial = [
+  MatCardModule,
+  MatButtonModule
+]
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    ...AngularMaterial,
     CoreModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
