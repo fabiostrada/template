@@ -1,11 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { takeUntil, tap } from 'rxjs';
+import { AppRoutings } from 'src/app/config/app-routing';
 import { BaseComponent } from 'src/app/core/components/base.component';
 import { Role } from 'src/app/core/models/role';
+import { UserDb } from 'src/app/core/models/user.db';
 import { RoleService } from 'src/app/core/services/role.service';
 import { UserService } from 'src/app/core/services/user.service';
 import { arrayNotEmptyValidator } from 'src/app/shared/validators/array-not-empty.validator';
 import { equalPasswordValidator } from 'src/app/shared/validators/equal-password.validator';
+import { LoginRouting } from '../../configs/login.routing';
 
 
 @Component({
@@ -21,12 +26,13 @@ export class RegistrationComponent  extends BaseComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
               private userService: UserService,
-              private roleService: RoleService) { 
+              private roleService: RoleService,
+              private router: Router) { 
     super();
   }
 
   ngOnInit(): void {
-    this.allRoles = this.roleService.getAllRoles();
+    this.allRoles = this.roleService.getAllRolesExceptAdmin();
     this.form = this.formBuilder.group(
       {
         username: ['', [Validators.required, Validators.minLength(3)]],
@@ -41,7 +47,14 @@ export class RegistrationComponent  extends BaseComponent implements OnInit {
   }
 
   public register(): void {
-    console.log(this.form);
+    this.userService.register(UserDb.build(this.form))
+                    .pipe(
+                      takeUntil(this.unsubscribeAll),
+                      tap(() => {
+                          this.router.navigate([AppRoutings.login, LoginRouting.loginSuccess]);
+                      }))
+                    .subscribe();
   }
+
 
 }

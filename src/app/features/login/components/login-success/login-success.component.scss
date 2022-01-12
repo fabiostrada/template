@@ -1,0 +1,40 @@
+:host {
+    display: flex;
+    justify-content: center;
+    margin: 100px 0px;
+
+    .mat-card {
+        min-width: 400px;
+        .mat-card-title {
+            color: green;
+        }
+    }
+
+    .mat-form-field {
+        width: 100%;
+        min-width: 500px;
+    }
+
+    mat-card-title,
+    mat-card-content {
+      display: flex;
+      justify-content: center;
+    }
+    
+    .button {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .subtitle {
+        color: #8198ae;
+        text-align: center;
+        cursor: pointer;
+    }
+}
+
+
+
+
+
+

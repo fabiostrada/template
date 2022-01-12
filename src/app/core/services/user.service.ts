@@ -7,6 +7,7 @@ import { LocalStorageItem } from '../configs/local-storage-item';
 import { Credential } from '../models/credential';
 import { Role } from '../models/role';
 import { User } from '../models/user';
+import { UserDb } from '../models/user.db';
 import { LocalStorageService } from './local-storage.service';
 import { RoleService } from './role.service';
 
@@ -58,14 +59,14 @@ export class UserService extends HttpService {
 
   public login(credential: Credential): Observable<User> {
     return this.httpClient
-        .get<Array<User>>(`${this.baseUrl}${this.serviceUrl()}?username=${credential.username}`)
+        .get<Array<UserDb>>(`${this.baseUrl}${this.serviceUrl()}?username=${credential.username}`)
         .pipe(
-          switchMap((users: Array<any>) => {
+          switchMap((users: Array<UserDb>) => {
             if (!!users && users.length == 1) {
               let roles: Array<Role> = this.roleService.getAllRoles();
               let currentUser: User = User.build(users[0], roles);
               this.localStorageService.setItem<User>(currentUser, LocalStorageItem.USER);
-              return new Observable(oberver => oberver.next(currentUser));
+              return of(currentUser);
             } else {
               throw new Error('Incorrect Credentials');
             }
@@ -76,8 +77,14 @@ export class UserService extends HttpService {
     this.localStorageService.removeItem(LocalStorageItem.USER);
   }
 
-  public register() {
-    
+  public register(user: UserDb): Observable<UserDb> {      
+      return this.httpClient.get<Array<UserDb>>(`${this.baseUrl}${this.serviceUrl()}?username=${user.username}`)
+                     .pipe(switchMap((users: Array<UserDb>) => {
+                       if (!!users && users.length > 0) {
+                          throw new Error('Username already exist');
+                       }
+                       return this.httpClient.post(`${this.baseUrl}${this.serviceUrl()}`, user);
+                     })) as Observable<UserDb>;      
   }
 
 }

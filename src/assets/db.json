@@ -1,93 +1,121 @@
 {
-    "users": [
-        {
-            "id": 1,
-            "name": "Fabio",
-            "surname": "Strada",
-            "username": "roccia2000",            
-            "roles": [1, 2, 3]            
-        },
-        {
-            "id": 2,
-            "name": "Giuseppe",
-            "surname": "Orlando",
-            "username": "orsobruno",
-            "roles": [1, 2]         
-        },
-        {
-            "id": 3,
-            "name": "Gianluca",
-            "surname": "Strada",
-            "username": "andreagassi",
-            "roles": [3]            
-        }                
-    ],
-    "roles": [
-        {
-            "id": 1,
-            "name": "admin"
-        },
-        {
-            "id": 2,
-            "name": "seller"
-        },
-        {
-            "id": 3,
-            "name": "buyer"
-        }        
-    ],
-    "articles": [
-        {
-            "id": 1,
-            "name": "Article 1",
-            "price": 3
-        },
-        {
-            "id": 2,
-            "name": "Article 2",
-            "price": 5
-        },
-        {
-            "id": 3,
-            "name": "Article 3",
-            "price": 7
-        }         
-    ],
-    "store": [
-        {
-            "id": 1,
-            "idArticle": 1,
-            "amount": 50
-        },
-        {
-            "id": 2,
-            "idArticle": 2,
-            "amount": 30
-        },
-        {
-            "id": 3,
-            "idArticle": 3,
-            "amount": 70
-        }           
-    ],
-    "sold_article": [
-        {
-            "id": 1,
-            "idArticle": 1,
-            "amount": 3,
-            "idUser": 1
-        },
-        {
-            "id": 2,
-            "idArticle": 3,
-            "amount": 7,
-            "idUser": 1
-        },
-        {
-            "id": 3,
-            "idArticle": 2,
-            "amount": 17,
-            "idUser": 3
-        }                 
-    ]
+  "users": [
+    {
+      "id": 1,
+      "name": "Fabio",
+      "surname": "Strada",
+      "username": "roccia2000",
+      "roles": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Giuseppe",
+      "surname": "Orlando",
+      "username": "orsobruno",
+      "roles": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Gianluca",
+      "surname": "Strada",
+      "username": "andreagassi",
+      "roles": [
+        3
+      ]
+    },
+    {
+      "name": "alessandro",
+      "surname": "rossi",
+      "username": "pippo",
+      "roles": [
+        2,
+        3
+      ],
+      "id": 4
+    },
+    {
+      "name": "fabio",
+      "surname": "strada",
+      "username": "roccia3000",
+      "roles": [
+        2
+      ],
+      "id": 5
+    }
+  ],
+  "roles": [
+    {
+      "id": 1,
+      "name": "admin"
+    },
+    {
+      "id": 2,
+      "name": "seller"
+    },
+    {
+      "id": 3,
+      "name": "buyer"
+    }
+  ],
+  "articles": [
+    {
+      "id": 1,
+      "name": "Article 1",
+      "price": 3
+    },
+    {
+      "id": 2,
+      "name": "Article 2",
+      "price": 5
+    },
+    {
+      "id": 3,
+      "name": "Article 3",
+      "price": 7
+    }
+  ],
+  "store": [
+    {
+      "id": 1,
+      "idArticle": 1,
+      "amount": 50
+    },
+    {
+      "id": 2,
+      "idArticle": 2,
+      "amount": 30
+    },
+    {
+      "id": 3,
+      "idArticle": 3,
+      "amount": 70
+    }
+  ],
+  "sold_article": [
+    {
+      "id": 1,
+      "idArticle": 1,
+      "amount": 3,
+      "idUser": 1
+    },
+    {
+      "id": 2,
+      "idArticle": 3,
+      "amount": 7,
+      "idUser": 1
+    },
+    {
+      "id": 3,
+      "idArticle": 2,
+      "amount": 17,
+      "idUser": 3
+    }
+  ]
 }

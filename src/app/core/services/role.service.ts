@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { RoleType } from 'src/app/config/app-roles';
 import { HttpService } from 'src/app/core/services/http.service';
 import { AppConfig } from '../configs/app-config';
 import { Role } from '../models/role';
@@ -26,6 +27,10 @@ export class RoleService extends HttpService {
 
   public getAllRoles(): Array<Role> {
     return this.roles;
+  }
+
+  public getAllRolesExceptAdmin() {
+    return this.roles.filter(role => role.name != RoleType.ADMIN);
   }
 
 }
