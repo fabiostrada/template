@@ -1,9 +1,9 @@
 import { Inject, LOCALE_ID, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AdminRoutingModule } from './admin-routing.module';
-import { BaseModule } from 'src/app/shared/models/base.module';
+import { BaseModule } from 'src/app/core/models/base.module';
 import { TranslateService } from '@ngx-translate/core';
-import { translateModule } from 'src/app/shared/helpers/translate.helper';
+import { translateModule } from 'src/app/core/helpers/translate.helper';
 
 @NgModule({
   declarations: [],

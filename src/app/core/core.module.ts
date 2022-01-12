@@ -5,11 +5,11 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { MaterialModule } from './material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { TranslateService } from '@ngx-translate/core';
-import {  translateModule } from '../shared/helpers/translate.helper';
-import { BaseRootModule } from '../shared/models/base.module';
+import { BaseRootModule } from './models/base.module';
 import { FooterComponent } from './components/footer/footer.component';
 import { ContainerComponent } from './components/container/container.component';
 import { SharedModule } from '../shared/shared.module';
+import { translateModule } from './helpers/translate.helper';
 
 
 @NgModule({

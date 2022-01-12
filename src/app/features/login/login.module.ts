@@ -3,11 +3,11 @@ import { CommonModule } from '@angular/common';
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
-import { BaseModule } from 'src/app/shared/models/base.module';
+import { BaseModule } from 'src/app/core/models/base.module';
 import { TranslateService } from '@ngx-translate/core';
-import {  translateModule } from 'src/app/shared/helpers/translate.helper';
 import { MaterialModule } from './material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { translateModule } from 'src/app/core/helpers/translate.helper';
 
 
 @NgModule({
@@ -18,8 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     LoginRoutingModule,
-    ...MaterialModule,
     ReactiveFormsModule,
+    ...MaterialModule,
     ...translateModule
   ]
 })

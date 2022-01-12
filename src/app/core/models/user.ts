@@ -1,5 +1,5 @@
 import { RoleType } from "src/app/config/app-roles";
-import { isNotEmpty } from "src/app/shared/helpers/array.helper";
+import { isNotEmpty } from "src/app/core/helpers/array.helper";
 import { Role } from "./role";
 
 export class User {

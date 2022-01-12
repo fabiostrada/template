@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of, switchMap } from 'rxjs';
-import { HttpService } from 'src/app/shared/services/http.service';
+import { HttpService } from 'src/app/core/services/http.service';
 import { AppConfig } from '../configs/app-config';
 import { LocalStorageItem } from '../configs/local-storage-item';
 import { Credential } from '../models/credential';

@@ -6,13 +6,13 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
 import { TranslateService } from '@ngx-translate/core';
-import { translateModule } from './shared/helpers/translate.helper';
 import { AppConfig } from './core/configs/app-config';
 import { environment } from 'src/environments/environment';
-import { BaseRootModule } from './shared/models/base.module';
+import { BaseRootModule } from './core/models/base.module';
 import { HomeComponent } from './components/home/home.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { translateModule } from './core/helpers/translate.helper';
 
 
 const AngularMaterial = [

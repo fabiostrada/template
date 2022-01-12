@@ -1,5 +1,4 @@
 import { HttpClient } from "@angular/common/http";
-import { ModuleWithProviders } from "@angular/core";
 import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { AppConfig } from "src/app/core/configs/app-config";
