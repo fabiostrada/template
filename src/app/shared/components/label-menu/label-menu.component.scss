@@ -1,0 +1,17 @@
+:host {
+    margin-left: 1rem;
+    .container-label {
+        display: table-cell;
+        font-size: 14px;
+        margin-left: 8px;
+        min-width: 120px;
+        .pre-label {
+            color: black;
+            margin-right: 0.5rem;
+        }
+        .label {
+            color: blue;
+            font-weight: bold;
+        }
+    }
+}

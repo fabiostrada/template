@@ -6,6 +6,12 @@
         <mat-icon>home</mat-icon>
     </button>
     <span class="example-spacer"></span>   
+    <ng-container *ngIf="(this.userService.isBuyer() | async)">
+        <button mat-button routerLink="buyer/products" aria-label="Products" role="button">Products</button>
+    </ng-container>     
+    <ng-container *ngIf="(this.userService.isSeller() | async)">
+        <button mat-button routerLink="seller/store" aria-label="Store" role="button">Store</button>
+    </ng-container> 
     <ng-container *ngIf="(this.userService.isAdmin() | async)">
         <button mat-button routerLink="admin/settings" aria-label="Settings" role="button">Settings</button>
     </ng-container> 
@@ -13,7 +19,8 @@
         <button mat-button routerLink="auth/login" aria-label="Login" role="button">Login</button>
         <button mat-button routerLink="auth/registration" aria-label="Registration" role="button">Registration</button>
     </ng-container>
-    <ng-template #common>
+    <ng-template #common>        
         <button mat-button aria-label="Logout" role="button" (click)="userService.logout()">Logout</button>
+        <label-menu preLabel="username" label="{{(this.userService.currentUser() | async)?.username}}"></label-menu>
     </ng-template>
 </mat-toolbar>

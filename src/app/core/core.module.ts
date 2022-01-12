@@ -9,6 +9,7 @@ import { HttpLoaderFactory } from '../shared/helpers/translate.helper';
 import { BaseRootModule } from '../shared/models/base.module';
 import { FooterComponent } from './components/footer/footer.component';
 import { ContainerComponent } from './components/container/container.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { ContainerComponent } from './components/container/container.component';
     ContainerComponent
   ],
   imports: [
+    SharedModule,
     CommonModule,
     RouterModule,
     HttpClientModule,

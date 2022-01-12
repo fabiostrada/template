@@ -4,13 +4,17 @@ import { Role } from "./role";
 
 export class User {
 
+    public fullname: string;
+
     constructor(
         public id: number,
         public name: string,
         public surname: string,
         public username: string,
         public roles: Array<Role>
-    ) { }
+    ) { 
+        this.fullname = this.surname + ' ' + this.name;
+    }
 
     public static build(userDb: any, roles: Array<Role>): User {
         let roleOfUser: Array<Role> = isNotEmpty(userDb.roles) ? roles.filter(role => userDb.roles.includes(role.id)):[];

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, switchMap } from 'rxjs';
+import { Observable, of, switchMap } from 'rxjs';
 import { HttpService } from 'src/app/shared/services/http.service';
 import { AppConfig } from '../configs/app-config';
 import { LocalStorageItem } from '../configs/local-storage-item';
@@ -36,8 +36,24 @@ export class UserService extends HttpService {
     return this.currentUser()
       .pipe(switchMap((user: User | undefined) => {
           let isAdmin: boolean = !!user && User.isAdmin(user);
-          return new Observable(oberver => oberver.next(isAdmin));
+          return of(isAdmin);
       })) as Observable<boolean>;
+  }
+
+  public isSeller(): Observable<boolean> {
+    return this.currentUser()
+    .pipe(switchMap((user: User | undefined) => {
+        let isAdmin: boolean = !!user && User.isSeller(user);
+        return of(isAdmin);
+    })) as Observable<boolean>;
+  }
+
+  public isBuyer(): Observable<boolean> {
+    return this.currentUser()
+    .pipe(switchMap((user: User | undefined) => {
+        let isAdmin: boolean = !!user && User.isBuyer(user);
+        return of(isAdmin);
+    })) as Observable<boolean>;
   }
 
   public login(credential: Credential): Observable<User> {
