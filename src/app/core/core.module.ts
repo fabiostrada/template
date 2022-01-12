@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { MaterialModule } from './material.module';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
-import { HttpLoaderFactory } from '../shared/helpers/translate.helper';
+import { HttpClientModule } from '@angular/common/http';
+import { TranslateService } from '@ngx-translate/core';
+import {  translateModule } from '../shared/helpers/translate.helper';
 import { BaseRootModule } from '../shared/models/base.module';
 import { FooterComponent } from './components/footer/footer.component';
 import { ContainerComponent } from './components/container/container.component';
@@ -24,13 +24,7 @@ import { SharedModule } from '../shared/shared.module';
     RouterModule,
     HttpClientModule,
     ...MaterialModule,
-    TranslateModule.forRoot({
-      loader: {
-          provide: TranslateLoader,
-          useFactory: HttpLoaderFactory,
-          deps: [HttpClient]
-      }
-    })
+    ...translateModule
   ],
   exports: [
     NavBarComponent,

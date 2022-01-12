@@ -5,15 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
-import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
-import { HttpClient } from '@angular/common/http';
-import { HttpLoaderFactory } from './shared/helpers/translate.helper';
+import { TranslateService } from '@ngx-translate/core';
+import { translateModule } from './shared/helpers/translate.helper';
 import { AppConfig } from './core/configs/app-config';
 import { environment } from 'src/environments/environment';
 import { BaseRootModule } from './shared/models/base.module';
 import { HomeComponent } from './components/home/home.component';
-import {MatCardModule} from '@angular/material/card';
-import {MatButtonModule} from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 
 
 const AngularMaterial = [
@@ -29,15 +28,9 @@ const AngularMaterial = [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    ...AngularMaterial,
     CoreModule.forRoot(),
-    TranslateModule.forRoot({
-      loader: {
-          provide: TranslateLoader,
-          useFactory: HttpLoaderFactory,
-          deps: [HttpClient, AppConfig]
-      }
-    })
+    ...AngularMaterial,    
+    ...translateModule
   ],
   providers: [],
   bootstrap: [AppComponent]
