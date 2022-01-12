@@ -20,6 +20,7 @@
         <button mat-button routerLink="auth/registration" aria-label="Registration" role="button">Registration</button>
     </ng-container>
     <ng-template #common>        
+        <button mat-button aria-label="Account" role="button">Account</button>
         <button mat-button aria-label="Logout" role="button" (click)="userService.logout()">Logout</button>
         <label-menu preLabel="username" label="{{(this.userService.currentUser() | async)?.username}}"></label-menu>
     </ng-template>
