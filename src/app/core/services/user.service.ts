@@ -37,6 +37,10 @@ export class UserService extends HttpService {
     return of(!!currentUser ? currentUser : undefined);
   }
 
+  public currentUserAsync(): User | undefined {
+    return this.localStorageService.getItem<User>(LocalStorageItem.USER);   
+  }
+
   public isAdmin(): Observable<boolean> {
     return this.currentUser()
       .pipe(switchMap((user: User | undefined) => {
@@ -70,8 +74,7 @@ export class UserService extends HttpService {
               let roles: Array<Role> = this.roleService.getAllRoles();
               let currentUser: User = User.build(users[0], roles);
               this.localStorageService.setItem<User>(currentUser, LocalStorageItem.USER);
-              this.tokenService.setToken(users[0].token);
-              console.log(currentUser);
+              this.tokenService.setToken(users[0].token);              
               return of(currentUser);
             } else {
               throw new BadRequestException(ErrorCode.loginModule.login.incorrect_credentials);

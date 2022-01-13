@@ -9,7 +9,8 @@ export const ErrorCode = {
     },
     common: {
         errors: {
-            undefined: 'COMMON.ERRORS.UNDEFINED'
+            undefined: 'COMMON.ERRORS.UNDEFINED',
+            forbidden: 'COMMON.ERRORS.FORBIDDEN'
         }
     }    
 }

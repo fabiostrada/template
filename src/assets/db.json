@@ -72,16 +72,19 @@
     {
       "id": 1,
       "idArticle": 1,
+      "idUser": 1,
       "amount": 50
     },
     {
       "id": 2,
       "idArticle": 2,
+      "idUser": 1,
       "amount": 30
     },
     {
       "id": 3,
       "idArticle": 3,
+      "idUser": 1,
       "amount": 70
     }
   ],
