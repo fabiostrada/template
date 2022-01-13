@@ -6,7 +6,7 @@ import { AppConfig } from '../configs/app-config';
 import { ErrorCode } from '../configs/error-code';
 import { LocalStorageItem } from '../configs/local-storage-item';
 import { Credential } from '../models/credential';
-import { BadRequestException } from '../models/error.module';
+import { BadRequestException } from '../models/exception.model';
 import { Role } from '../models/role';
 import { User } from '../models/user';
 import { UserDb } from '../models/user.db';

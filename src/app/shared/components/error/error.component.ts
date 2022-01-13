@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Exception } from 'src/app/core/models/error.module';
+import { Exception } from 'src/app/core/models/exception.model';
 
 @Component({
   selector: 'error',

@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { catchError, of, takeUntil, tap } from 'rxjs';
 import { AppRoutings } from 'src/app/config/app-routing';
 import { BaseComponent } from 'src/app/core/components/base.component';
-import { Exception } from 'src/app/core/models/error.module';
+import { Exception } from 'src/app/core/models/exception.model';
 import { Role } from 'src/app/core/models/role';
 import { UserDb } from 'src/app/core/models/user.db';
 import { RoleService } from 'src/app/core/services/role.service';
