@@ -68,6 +68,7 @@ export class UserService extends HttpService {
               let roles: Array<Role> = this.roleService.getAllRoles();
               let currentUser: User = User.build(users[0], roles);
               this.localStorageService.setItem<User>(currentUser, LocalStorageItem.USER);
+              console.log(currentUser);
               return of(currentUser);
             } else {
               throw new BadRequestException(ErrorCode.loginModule.login.incorrect_credentials);

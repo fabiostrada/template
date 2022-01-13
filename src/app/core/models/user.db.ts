@@ -1,4 +1,5 @@
 import { AbstractControl, FormGroup } from "@angular/forms";
+import { makeToken } from "../helpers/token.herlper";
 
 export class UserDb {
     
@@ -7,6 +8,7 @@ export class UserDb {
         public name: string,
         public surname: string,
         public username: string,
+        public token: string,
         public roles: Array<number>
     ) { }
 
@@ -23,6 +25,7 @@ export class UserDb {
                           nameControl.value,
                           surnameControl.value,
                           usernameControl.value,
+                          makeToken(20),
                           roles);
       }
 }

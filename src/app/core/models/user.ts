@@ -12,6 +12,7 @@ export class User {
         public name: string,
         public surname: string,
         public username: string,
+        public token: string,
         public roles: Array<Role>
     ) { 
         this.fullname = this.surname + ' ' + this.name;
@@ -20,7 +21,7 @@ export class User {
     public static build(userDb: UserDb, roles: Array<Role>): User {
         let roleOfUser: Array<Role> = isNotEmpty(userDb.roles) ? roles.filter(role => userDb.roles.includes(role.id)):[];
         return new User(
-            userDb.id, userDb.name, userDb.surname, userDb.username, roleOfUser
+            userDb.id, userDb.name, userDb.surname, userDb.username,userDb.token, roleOfUser
         );
     }
 

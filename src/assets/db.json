@@ -5,6 +5,7 @@
       "name": "Fabio",
       "surname": "Strada",
       "username": "roccia2000",
+      "token": "4rfdvufdg8349scs32423435435fsf",
       "roles": [
         1,
         2,
@@ -16,6 +17,7 @@
       "name": "Giuseppe",
       "surname": "Orlando",
       "username": "orsobruno",
+      "token": "cdvfds743fgsdvfet43tgds123fcbvg6vg",
       "roles": [
         1,
         2
@@ -26,58 +28,10 @@
       "name": "Gianluca",
       "surname": "Strada",
       "username": "andreagassi",
+      "token": "dcsdvcssahnvd432534sdvfsdv43543tfrg",
       "roles": [
         3
       ]
-    },
-    {
-      "name": "alessandro",
-      "surname": "rossi",
-      "username": "pippo",
-      "roles": [
-        2,
-        3
-      ],
-      "id": 4
-    },
-    {
-      "name": "fabio",
-      "surname": "strada",
-      "username": "roccia3000",
-      "roles": [
-        2
-      ],
-      "id": 5
-    },
-    {
-      "name": "mattia",
-      "surname": "fravezzi",
-      "username": "mattiafravezzi",
-      "roles": [
-        2,
-        3
-      ],
-      "id": 6
-    },
-    {
-      "name": "alex",
-      "surname": "roccia4000",
-      "username": "cometa",
-      "roles": [
-        2,
-        3
-      ],
-      "id": 7
-    },
-    {
-      "name": "fabio",
-      "surname": "strada",
-      "username": "roccia2001",
-      "roles": [
-        2,
-        3
-      ],
-      "id": 8
     }
   ],
   "roles": [
