@@ -1,5 +1,3 @@
-import { Organization } from "./app-organization";
-
 export class AppConfig {
     organization!: string;
     baseUrl!: string;

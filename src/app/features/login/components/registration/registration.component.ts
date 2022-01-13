@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { takeUntil, tap } from 'rxjs';
+import { catchError, of, takeUntil, tap } from 'rxjs';
 import { AppRoutings } from 'src/app/config/app-routing';
 import { BaseComponent } from 'src/app/core/components/base.component';
+import { Exception } from 'src/app/core/models/error.module';
 import { Role } from 'src/app/core/models/role';
 import { UserDb } from 'src/app/core/models/user.db';
 import { RoleService } from 'src/app/core/services/role.service';
@@ -21,7 +22,7 @@ import { LoginRouting } from '../../configs/login.routing';
 export class RegistrationComponent  extends BaseComponent implements OnInit {
 
   public form!: FormGroup;  
-  public allRoles!: Array<Role>;
+  public allRoles!: Array<Role>;  
 
   constructor(private formBuilder: FormBuilder,
               private userService: UserService,
@@ -51,6 +52,10 @@ export class RegistrationComponent  extends BaseComponent implements OnInit {
                       takeUntil(this.unsubscribeAll),
                       tap(() => {
                           this.router.navigate([AppRoutings.login, LoginRouting.loginSuccess]);
+                      }),
+                      catchError((exception: Exception) => {
+                          this.error = exception;
+                          return of(exception);
                       }))
                     .subscribe();
   }

@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
+import { Exception } from '../models/error.module';
 @Component({
   selector: 'hello',
   template: ''
@@ -7,6 +8,8 @@ import { Subject } from 'rxjs';
 export abstract class BaseComponent implements OnDestroy {
 
   protected unsubscribeAll: Subject<any> = new Subject();
+
+  public error?: Exception;
 
   constructor() { }
 

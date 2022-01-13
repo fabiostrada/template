@@ -10,6 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { translateModule } from 'src/app/core/helpers/translate.helper';
 import { CoreModule } from 'src/app/core/core.module';
 import { LoginSuccessComponent } from './components/login-success/login-success.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { LoginSuccessComponent } from './components/login-success/login-success.
     CommonModule,
     LoginRoutingModule,
     ReactiveFormsModule,
+    SharedModule,
     ...MaterialModule,
     ...translateModule
   ]

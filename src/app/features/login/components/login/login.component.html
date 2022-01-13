@@ -26,9 +26,7 @@
                 <button type="submit" mat-button [disabled]="form.invalid">Login</button>
             </div>
 
-            <div *ngIf="errorCallLogin" class="error top">
-                Username e password errate
-            </div>
+            <error [error]="error"></error>
 
         </form>
     </mat-card-content>

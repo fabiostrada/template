@@ -6,7 +6,18 @@
         "TITLE": "Fast paced way to grow your business",
         "SUB_TITLE": "Sell your products or buy"
     },
+    "LOGIN_MODULE": {
+        "REGISTRATION": {
+            "USERNAME_ALREADY_EXIST": "Username already exist"
+        },
+        "LOGIN": {
+            "INCORRECT_CREDENTIALS": "Incorrect credentials"
+        }
+    },    
     "COMMON": {
-        "ORGANIZATION": "Organization"
+        "ORGANIZATION": "Organization",
+        "ERRORS": {
+            "UNDEFINED": "Genric error. Contact the administrator"
+        }
     }    
 }

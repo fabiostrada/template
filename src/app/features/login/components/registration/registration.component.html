@@ -37,7 +37,10 @@
             </p>
             <div class="button">
                 <button type="submit" mat-button [disabled]="form.invalid">Register</button>                                
-            </div>                                  
+            </div>   
+            
+            <error [error]="error"></error>
+
         </form>
     </mat-card-content>
 </mat-card>

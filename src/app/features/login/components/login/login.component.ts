@@ -15,7 +15,6 @@ import { BaseComponent } from 'src/app/core/components/base.component';
 export class LoginComponent extends BaseComponent implements OnInit {
 
   public form!: FormGroup;
-  public errorCallLogin: boolean = false;
 
   constructor(private formBuilder: FormBuilder,
               private userService: UserService,
@@ -36,13 +35,12 @@ export class LoginComponent extends BaseComponent implements OnInit {
     this.userService.login(Credential.of(this.form))   
                     .pipe(          
                       takeUntil(this.unsubscribeAll),            
-                      tap((user: User) => {
-                        this.errorCallLogin = false;
+                      tap((user: User) => {                        
                         this.router.navigate(['/']);
                       }),
-                      catchError(error => {
-                        this.errorCallLogin = true;
-                        return of(error);
+                      catchError(exception => {
+                        this.error = exception;
+                        return of(exception);
                     })).subscribe();
   }
 

@@ -1,0 +1,13 @@
+:host {
+    .error {
+        padding: 16px;
+        width: 300px;
+        color: white;
+        background-color: red;
+        margin-bottom: 0.5rem;
+
+        &.top {
+            margin-top: 0.5rem;
+        }
+    }
+}

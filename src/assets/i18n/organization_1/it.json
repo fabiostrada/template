@@ -1,12 +1,22 @@
 {
     "ORGANIZATION": "Organizzazione 1",
-    "HELLO": "Ciao {{value}}",
-    "TEST": "Io mi chiamo Fabio (unicredit)",
+    "HELLO": "Ciao {{value}}",    
     "HOME": {
         "TITLE": "Un modo veloce per far crescere il tuo business",
         "SUB_TITLE": "Fast e-commerce"
     },
+    "LOGIN_MODULE": {
+        "REGISTRATION": {
+            "USERNAME_ALREADY_EXIST": "Username già esistente"
+        },
+        "LOGIN": {
+            "INCORRECT_CREDENTIALS": "Credenziali non corrette"
+        }
+    },
     "COMMON": {
-        "ORGANIZATION": "Organizzazione"
+        "ORGANIZATION": "Organizzazione",
+        "ERRORS": {
+            "UNDEFINED": "Errore generico contattare l'amministratore"
+        }
     }   
 }

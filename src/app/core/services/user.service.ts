@@ -3,8 +3,10 @@ import { Injectable } from '@angular/core';
 import { Observable, of, switchMap } from 'rxjs';
 import { HttpService } from 'src/app/core/services/http.service';
 import { AppConfig } from '../configs/app-config';
+import { ErrorCode } from '../configs/error-code';
 import { LocalStorageItem } from '../configs/local-storage-item';
 import { Credential } from '../models/credential';
+import { BadRequestException } from '../models/error.module';
 import { Role } from '../models/role';
 import { User } from '../models/user';
 import { UserDb } from '../models/user.db';
@@ -68,7 +70,7 @@ export class UserService extends HttpService {
               this.localStorageService.setItem<User>(currentUser, LocalStorageItem.USER);
               return of(currentUser);
             } else {
-              throw new Error('Incorrect Credentials');
+              throw new BadRequestException(ErrorCode.loginModule.login.incorrect_credentials);
             }
           })) as Observable<User>;   
   }
@@ -81,7 +83,7 @@ export class UserService extends HttpService {
       return this.httpClient.get<Array<UserDb>>(`${this.baseUrl}${this.serviceUrl()}?username=${user.username}`)
                      .pipe(switchMap((users: Array<UserDb>) => {
                        if (!!users && users.length > 0) {
-                          throw new Error('Username already exist');
+                          throw new BadRequestException(ErrorCode.loginModule.registration.username_already_exist);
                        }
                        return this.httpClient.post(`${this.baseUrl}${this.serviceUrl()}`, user);
                      })) as Observable<UserDb>;      
