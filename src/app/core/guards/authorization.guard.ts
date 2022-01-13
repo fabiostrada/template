@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, CanLoad, Route, Router, RouterStateSnapshot, UrlSegment, UrlTree } from '@angular/router';
 import { Observable, of, switchMap } from 'rxjs';
 import { rolesTypesFrom, RoleType } from 'src/app/config/app-roles';
-import { AppRoutings } from 'src/app/config/app-routing';
+import { AppRoutings } from 'src/app/core/configs/app-routing';
 import { CommonPageRouting } from 'src/app/features/common-page/configs/common-page.routing';
 import { Role } from '../models/role';
 import { User } from '../models/user';

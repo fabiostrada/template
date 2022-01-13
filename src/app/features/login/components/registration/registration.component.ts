@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { catchError, of, takeUntil, tap } from 'rxjs';
-import { AppRoutings } from 'src/app/config/app-routing';
+import { AppRoutings } from 'src/app/core/configs/app-routing';
 import { BaseComponent } from 'src/app/core/components/base.component';
 import { Exception } from 'src/app/core/models/exception.model';
 import { Role } from 'src/app/core/models/role';

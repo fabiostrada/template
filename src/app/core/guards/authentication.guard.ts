@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, CanLoad, Route, Router, RouterStateSnapshot, UrlSegment, UrlTree } from '@angular/router';
 import { Observable, of, switchMap } from 'rxjs';
-import { AppRoutings } from 'src/app/config/app-routing';
+import { AppRoutings } from 'src/app/core/configs/app-routing';
 import { LoginRouting } from 'src/app/features/login/configs/login.routing';
 import { User } from '../models/user';
 import { LocalStorageService } from '../services/local-storage.service';
