@@ -1,4 +1,4 @@
-import { RoleType } from "src/app/config/app-roles";
+import { RoleType } from "src/app/core/configs/app-roles";
 import { isNullOrEmpty } from "src/app/core/helpers/array.helper";
 
 export class Role {

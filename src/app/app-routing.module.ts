@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
-import { RoleType } from './config/app-roles';
+import { RoleType } from './core/configs/app-roles';
 import { AppRoutings } from './core/configs/app-routing';
 import { AuthenticationGuard } from './core/guards/authentication.guard';
 import { AuthorizationGuard } from './core/guards/authorization.guard';

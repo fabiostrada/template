@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { RoleType } from 'src/app/config/app-roles';
+import { RoleType } from 'src/app/core/configs/app-roles';
 import { HttpService } from 'src/app/core/services/http.service';
 import { AppConfig } from '../configs/app-config';
 import { Role } from '../models/role';

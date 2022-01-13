@@ -1,4 +1,4 @@
-import { RoleType } from "src/app/config/app-roles";
+import { RoleType } from "src/app/core/configs/app-roles";
 import { isNotEmpty } from "src/app/core/helpers/array.helper";
 import { Role } from "./role";
 import { UserDb } from "./user.db";
