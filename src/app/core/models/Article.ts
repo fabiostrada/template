@@ -1,11 +1,15 @@
 import { isNullOrEmpty } from "../helpers/array.helper";
 import { ArticleApi } from "./api/article.api";
+import { Base } from "./base";
 
-export class Article {
+export class Article extends Base {
 
-    constructor(public id: number | undefined,
-        public name: string,
-        public price: number) {}
+    constructor(public override id: number | undefined,
+                public name: string,
+                public description: string,
+                public price: number) {
+        super(id);
+    }
 
     public static arrayOf(arrayApi: Array<ArticleApi>): Array<Article> {
         if (isNullOrEmpty(arrayApi)) {
@@ -16,7 +20,7 @@ export class Article {
 
     public static of(item: ArticleApi): Article {
         return new Article(
-            item.id, item.name, item.price
+            item.id, item.name, item.description, item.price
         );
     }
     

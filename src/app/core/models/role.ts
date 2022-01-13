@@ -1,10 +1,13 @@
 import { RoleType } from "src/app/core/configs/app-roles";
 import { isNullOrEmpty } from "src/app/core/helpers/array.helper";
+import { Base } from "./base";
 
-export class Role {
+export class Role extends Base {
     
-    constructor(public id: number,
-                public name: string) {}
+    constructor(public override id: number,
+                public name: string) {
+        super(id);
+    }
 
     static contains(roles: Array<Role>, role: RoleType): boolean {
         if (isNullOrEmpty(roles)) {

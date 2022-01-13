@@ -52,17 +52,20 @@
     {
       "id": 1,
       "name": "Article 1",
-      "price": 3
+      "price": 3,
+      "description": "xxx xxx xxx xxxxxxxxxxx xxx xxx xxx xxxxx xxxx xxx xxxxxx xxx x xxxxx"
     },
     {
       "id": 2,
       "name": "Article 2",
-      "price": 5
+      "price": 5,
+      "description": "xxx xxx xxx xxxxxxxxxxx xxx xxx xxx xxxxx xxxx xxx xxxxxx xxx x xxxxx"
     },
     {
       "id": 3,
       "name": "Article 3",
-      "price": 7
+      "price": 7,
+      "description": "xxx xxx xxx xxxxxxxxxxx xxx xxx xxx xxxxx xxxx xxx xxxxxx xxx x xxxxx"
     }
   ],
   "store": [

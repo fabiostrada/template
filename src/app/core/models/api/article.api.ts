@@ -1,5 +1,11 @@
-export class ArticleApi {
-    constructor(public id: number | undefined,
+import { Base } from "../base";
+
+export class ArticleApi extends Base {
+
+    constructor(public override id: number | undefined,
                 public name: string,
-                public price: number) {}
+                public description: string,
+                public price: number) {
+        super(id);
+    }
 }

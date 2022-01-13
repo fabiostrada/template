@@ -1,16 +1,19 @@
 import { AbstractControl, FormGroup } from "@angular/forms";
 import { makeToken } from "../../helpers/token.herlper";
+import { Base } from "../base";
 
-export class UserApi {
+export class UserApi extends Base {
     
     constructor(       
-        public id: number | undefined,
+        public override id: number | undefined,
         public name: string,
         public surname: string,
         public username: string,
         public token: string,
         public roles: Array<number>
-    ) { }
+    ) { 
+      super(id);
+    }
 
     public static build(form: FormGroup): UserApi {
         let usernameControl: AbstractControl | null = form.get('username');        
