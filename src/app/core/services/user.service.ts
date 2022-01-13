@@ -6,12 +6,13 @@ import { AppConfig } from '../configs/app-config';
 import { ErrorCode } from '../configs/error-code';
 import { LocalStorageItem } from '../configs/local-storage-item';
 import { Credential } from '../models/credential';
-import { BadRequestException } from '../models/exception.model';
+import { BadRequestException } from '../models/exception';
 import { Role } from '../models/role';
 import { User } from '../models/user';
-import { UserDb } from '../models/user.db';
+import { UserApi } from '../models/api/user.api';
 import { LocalStorageService } from './local-storage.service';
 import { RoleService } from './role.service';
+import { TokenService } from './token.service';
 
 @Injectable({
   providedIn: 'root',
@@ -22,7 +23,8 @@ export class UserService extends HttpService {
   constructor(private localStorageService: LocalStorageService,
               protected override appConfig: AppConfig,
               protected override httpClient: HttpClient,
-              private roleService: RoleService) { 
+              private roleService: RoleService,
+              private tokenService: TokenService) { 
     super(appConfig, httpClient);
   }
 
@@ -31,8 +33,8 @@ export class UserService extends HttpService {
   }
 
   public currentUser(): Observable<User | undefined> {
-    let currentUser: User = this.localStorageService.getItem<User>(LocalStorageItem.USER);    
-    return new Observable(observer => observer.next(!!currentUser ? currentUser : undefined));
+    let currentUser: User | undefined = this.localStorageService.getItem<User>(LocalStorageItem.USER);    
+    return of(!!currentUser ? currentUser : undefined);
   }
 
   public isAdmin(): Observable<boolean> {
@@ -61,13 +63,14 @@ export class UserService extends HttpService {
 
   public login(credential: Credential): Observable<User> {
     return this.httpClient
-        .get<Array<UserDb>>(`${this.baseUrl}${this.serviceUrl()}?username=${credential.username}`)
+        .get<Array<UserApi>>(`${this.baseUrl}${this.serviceUrl()}?username=${credential.username}`)
         .pipe(
-          switchMap((users: Array<UserDb>) => {
+          switchMap((users: Array<UserApi>) => {
             if (!!users && users.length == 1) {
               let roles: Array<Role> = this.roleService.getAllRoles();
               let currentUser: User = User.build(users[0], roles);
               this.localStorageService.setItem<User>(currentUser, LocalStorageItem.USER);
+              this.tokenService.setToken(users[0].token);
               console.log(currentUser);
               return of(currentUser);
             } else {
@@ -80,14 +83,14 @@ export class UserService extends HttpService {
     this.localStorageService.removeItem(LocalStorageItem.USER);
   }
 
-  public register(user: UserDb): Observable<UserDb> {      
-      return this.httpClient.get<Array<UserDb>>(`${this.baseUrl}${this.serviceUrl()}?username=${user.username}`)
-                     .pipe(switchMap((users: Array<UserDb>) => {
+  public register(user: UserApi): Observable<UserApi> {      
+      return this.httpClient.get<Array<UserApi>>(`${this.baseUrl}${this.serviceUrl()}?username=${user.username}`)
+                     .pipe(switchMap((users: Array<UserApi>) => {
                        if (!!users && users.length > 0) {
                           throw new BadRequestException(ErrorCode.loginModule.registration.username_already_exist);
                        }
                        return this.httpClient.post(`${this.baseUrl}${this.serviceUrl()}`, user);
-                     })) as Observable<UserDb>;      
+                     })) as Observable<UserApi>;      
   }
 
 }

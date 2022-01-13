@@ -1,7 +1,7 @@
 import { AbstractControl, FormGroup } from "@angular/forms";
-import { makeToken } from "../helpers/token.herlper";
+import { makeToken } from "../../helpers/token.herlper";
 
-export class UserDb {
+export class UserApi {
     
     constructor(       
         public id: number | undefined,
@@ -12,7 +12,7 @@ export class UserDb {
         public roles: Array<number>
     ) { }
 
-    public static build(form: FormGroup): UserDb {
+    public static build(form: FormGroup): UserApi {
         let usernameControl: AbstractControl | null = form.get('username');        
         let nameControl: AbstractControl | null = form.get('name');
         let surnameControl: AbstractControl | null = form.get('surname');
@@ -21,7 +21,7 @@ export class UserDb {
           throw new Error("Build UserDb Failed!");
         }
         let roles: Array<number> = rolesControl.value;
-        return new UserDb(undefined, 
+        return new UserApi(undefined, 
                           nameControl.value,
                           surnameControl.value,
                           usernameControl.value,

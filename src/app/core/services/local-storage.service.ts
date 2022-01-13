@@ -10,7 +10,7 @@ export class LocalStorageService {
     localStorage.setItem(type, JSON.stringify(value));
   }
 
-  public getItem<T>(type: string): T {
+  public getItem<T>(type: string): T | undefined {
     const item: any = localStorage.getItem(type);
     return !!item ? JSON.parse(item) : null;
   }

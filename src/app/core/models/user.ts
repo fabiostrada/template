@@ -1,7 +1,7 @@
 import { RoleType } from "src/app/core/configs/app-roles";
 import { isNotEmpty } from "src/app/core/helpers/array.helper";
 import { Role } from "./role";
-import { UserDb } from "./user.db";
+import { UserApi } from "./api/user.api";
 
 export class User {
 
@@ -12,16 +12,15 @@ export class User {
         public name: string,
         public surname: string,
         public username: string,
-        public token: string,
         public roles: Array<Role>
     ) { 
         this.fullname = this.surname + ' ' + this.name;
     }
 
-    public static build(userDb: UserDb, roles: Array<Role>): User {
+    public static build(userDb: UserApi, roles: Array<Role>): User {
         let roleOfUser: Array<Role> = isNotEmpty(userDb.roles) ? roles.filter(role => userDb.roles.includes(role.id)):[];
         return new User(
-            userDb.id, userDb.name, userDb.surname, userDb.username,userDb.token, roleOfUser
+            userDb.id, userDb.name, userDb.surname, userDb.username, roleOfUser
         );
     }
 

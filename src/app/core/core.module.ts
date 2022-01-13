@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { MaterialModule } from './material.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TranslateService } from '@ngx-translate/core';
 import { BaseRootModule } from './models/base.module';
 import { FooterComponent } from './components/footer/footer.component';
@@ -43,7 +43,7 @@ export class CoreModule extends BaseRootModule<CoreModule> {
   public static forRoot() {
       return {
           ngModule: CoreModule,
-          providers: [            
+          providers: [                       
           ]
       }
   }

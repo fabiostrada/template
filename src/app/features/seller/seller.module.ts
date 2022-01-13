@@ -5,14 +5,21 @@ import { SellerRoutingModule } from './seller-routing.module';
 import { BaseModule } from 'src/app/core/models/base.module';
 import { TranslateService } from '@ngx-translate/core';
 import { translateModule } from 'src/app/core/helpers/translate.helper';
+import { HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from 'src/app/core/interceptors/token.interceptor';
+import { StoreComponent } from './components/store/store.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    StoreComponent
+  ],
   imports: [
     CommonModule,
     SellerRoutingModule,
     ...translateModule
+  ],
+  providers: [    
   ]
 })
 export class SellerModule extends BaseModule { 

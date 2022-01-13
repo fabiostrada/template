@@ -4,9 +4,9 @@ import { Router } from '@angular/router';
 import { catchError, of, takeUntil, tap } from 'rxjs';
 import { AppRoutings } from 'src/app/core/configs/app-routing';
 import { BaseComponent } from 'src/app/core/components/base.component';
-import { Exception } from 'src/app/core/models/exception.model';
+import { Exception } from 'src/app/core/models/exception';
 import { Role } from 'src/app/core/models/role';
-import { UserDb } from 'src/app/core/models/user.db';
+import { UserApi } from 'src/app/core/models/api/user.api';
 import { RoleService } from 'src/app/core/services/role.service';
 import { UserService } from 'src/app/core/services/user.service';
 import { arrayNotEmptyValidator } from 'src/app/shared/validators/array-not-empty.validator';
@@ -47,7 +47,7 @@ export class RegistrationComponent  extends BaseComponent implements OnInit {
   }
 
   public register(): void {
-    this.userService.register(UserDb.build(this.form))
+    this.userService.register(UserApi.build(this.form))
                     .pipe(
                       takeUntil(this.unsubscribeAll),
                       tap(() => {

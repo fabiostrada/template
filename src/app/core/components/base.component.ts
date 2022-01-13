@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
-import { Exception } from '../models/exception.model';
+import { Exception } from '../models/exception';
 @Component({
   selector: 'hello',
   template: ''
