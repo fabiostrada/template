@@ -1,6 +1,6 @@
 import { Inject, LOCALE_ID, Optional, SkipSelf } from "@angular/core";
 import { TranslateService } from "@ngx-translate/core";
-import { AppLanguage } from "src/app/config/app-language";
+import { AppLanguage } from "src/app/core/configs/app-language";
 
 export class BaseModule {
     constructor(translate: TranslateService,
