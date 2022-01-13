@@ -19,5 +19,8 @@
         "ERRORS": {
             "UNDEFINED": "Genric error. Contact the administrator"
         }
-    }    
+    },
+    "FOOTER": {
+        "MESSAGE": "© Design by Luke Skywalker"
+    }       
 }

@@ -26,7 +26,7 @@ fetch(`/assets/configs/config.json?v=${environment.appVersion}`)
     registerLocaleData(localeFr);
     registerLocaleData(localeDe);
 
-    let localeBrowser: string = transformLocale(navigator.language) || 'it';    
+    let localeBrowser: string = 'en' || transformLocale(navigator.language) || 'it';    
     
     platformBrowserDynamic([
       { provide: AppConfig, useValue: config },

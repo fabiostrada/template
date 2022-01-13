@@ -18,5 +18,8 @@
         "ERRORS": {
             "UNDEFINED": "Errore generico contattare l'amministratore"
         }
-    }   
+    },
+    "FOOTER": {
+        "MESSAGE": "© Progettato by Luke Skywalker"
+    }              
 }
