@@ -20,8 +20,7 @@ import { LoginRouting } from '../../configs/login.routing';
 })
 export class RegistrationComponent  extends BaseComponent implements OnInit {
 
-  public form!: FormGroup;
-  public regexPassword: string = '(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}';
+  public form!: FormGroup;  
   public allRoles!: Array<Role>;
 
   constructor(private formBuilder: FormBuilder,
@@ -38,7 +37,7 @@ export class RegistrationComponent  extends BaseComponent implements OnInit {
         username: ['', [Validators.required, Validators.minLength(3)]],
         name: ['', [Validators.required]],
         surname: ['', [Validators.required]],
-        password: ['', [Validators.required]],
+        password: ['', [Validators.required, Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/)]],
         repeatPassword: ['', [Validators.required]],
         roleFormController: ['', [arrayNotEmptyValidator()]]        
       },

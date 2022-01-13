@@ -48,6 +48,26 @@
         2
       ],
       "id": 5
+    },
+    {
+      "name": "mattia",
+      "surname": "fravezzi",
+      "username": "mattiafravezzi",
+      "roles": [
+        2,
+        3
+      ],
+      "id": 6
+    },
+    {
+      "name": "alex",
+      "surname": "roccia4000",
+      "username": "cometa",
+      "roles": [
+        2,
+        3
+      ],
+      "id": 7
     }
   ],
   "roles": [
