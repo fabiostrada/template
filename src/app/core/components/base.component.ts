@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Exception } from '../models/exception';
 @Component({
-  selector: 'hello',
+  selector: 'base-component',
   template: ''
 })
 export abstract class BaseComponent implements OnDestroy {
