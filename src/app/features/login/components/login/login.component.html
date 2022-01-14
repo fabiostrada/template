@@ -26,7 +26,7 @@
                 <button type="submit" mat-button [disabled]="form.invalid">Login</button>
             </div>
 
-            <error [error]="error"></error>
+            <error [error]="error?.errorCode"></error>
 
         </form>
     </mat-card-content>

@@ -8,6 +8,7 @@ import { translateModule } from 'src/app/core/helpers/translate.helper';
 import { HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from 'src/app/core/interceptors/token.interceptor';
 import { StoreComponent } from './components/store/store.component';
+import { MaterialModule } from './material.module';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { StoreComponent } from './components/store/store.component';
   imports: [
     CommonModule,
     SellerRoutingModule,
-    ...translateModule
+    ...translateModule,
+    ...MaterialModule
   ],
   providers: [    
   ]

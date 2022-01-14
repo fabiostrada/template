@@ -53,20 +53,38 @@
       "id": 1,
       "name": "Article 1",
       "price": 3,
-      "description": "xxx xxx xxx xxxxxxxxxxx xxx xxx xxx xxxxx xxxx xxx xxxxxx xxx x xxxxx"
+      "description": "Hydrogen is a chemical element with symbol H and atomic number 1. With a standard atomic weight of 1.008, hydrogen is the lightest element on the periodic table"
     },
     {
       "id": 2,
       "name": "Article 2",
       "price": 5,
-      "description": "xxx xxx xxx xxxxxxxxxxx xxx xxx xxx xxxxx xxxx xxx xxxxxx xxx x xxxxx"
+      "description": "Lithium is a chemical element with symbol Li and atomic number 3. It is a soft, silvery-white alkali metal. Under standard conditions, it is the lightest metal and the lightest solid element"
     },
     {
       "id": 3,
       "name": "Article 3",
       "price": 7,
-      "description": "xxx xxx xxx xxxxxxxxxxx xxx xxx xxx xxxxx xxxx xxx xxxxxx xxx x xxxxx"
-    }
+      "description": "Nitrogen is a chemical element with symbol N and atomic number 7. It was first discovered and isolated by Scottish physician Daniel Rutherford in 1772"
+    },
+    {
+      "id": 4,
+      "name": "Article 4",
+      "price": 7,
+      "description": "Nitrogen is a chemical element with symbol N and atomic number 7. It was first discovered and isolated by Scottish physician Daniel Rutherford in 1772"
+    } ,
+    {
+      "id": 5,
+      "name": "Article 5",
+      "price": 7,
+      "description": "Nitrogen is a chemical element with symbol N and atomic number 7. It was first discovered and isolated by Scottish physician Daniel Rutherford in 1772"
+    },
+    {
+      "id": 6,
+      "name": "Article 6",
+      "price": 7,
+      "description": "Nitrogen is a chemical element with symbol N and atomic number 7. It was first discovered and isolated by Scottish physician Daniel Rutherford in 1772"
+    }   
   ],
   "store": [
     {
@@ -84,6 +102,24 @@
     {
       "id": 3,
       "idArticle": 3,
+      "idUser": 1,
+      "amount": 70
+    },
+    {
+      "id": 4,
+      "idArticle": 4,
+      "idUser": 1,
+      "amount": 70
+    },
+    {
+      "id": 5,
+      "idArticle": 5,
+      "idUser": 1,
+      "amount": 70
+    },
+    {
+      "id": 6,
+      "idArticle": 6,
       "idUser": 1,
       "amount": 70
     }

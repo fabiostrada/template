@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Exception } from 'src/app/core/models/exception';
 
 @Component({
   selector: 'error',
@@ -9,6 +8,6 @@ import { Exception } from 'src/app/core/models/exception';
 export class ErrorComponent {
 
   @Input()
-  public error!:Exception | undefined;
+  public error!:string | undefined;
 
 }
