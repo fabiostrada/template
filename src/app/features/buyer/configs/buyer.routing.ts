@@ -1,3 +1,3 @@
 export class buyerRouting {
-    public static products: string = 'products';
+    public static purchased_articles: string = 'purchased_articles';
 }

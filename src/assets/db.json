@@ -124,7 +124,7 @@
       "amount": 70
     }
   ],
-  "sold_article": [
+  "purchased_articles": [
     {
       "id": 1,
       "idArticle": 1,

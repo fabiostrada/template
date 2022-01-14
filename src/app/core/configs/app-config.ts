@@ -14,7 +14,7 @@ export class AppConfig {
         store: {
             baseUrl: string
         },
-        sold_article: {
+        purchased_articles: {
             baseUrl: string
         }
     };    

@@ -7,7 +7,7 @@
     </button>
     <span class="example-spacer"></span>   
     <ng-container *ngIf="(this.userService.isBuyer() | async)">
-        <button mat-button routerLink="buyer/products" aria-label="Products" role="button">Products</button>
+        <button mat-button routerLink="buyer/purchased_articles" aria-label="Products" role="button">Purchased articles</button>
     </ng-container>     
     <ng-container *ngIf="(this.userService.isSeller() | async)">
         <button mat-button routerLink="seller/store" aria-label="Store" role="button">Store</button>

@@ -4,10 +4,11 @@ import { BuyerRoutingModule } from './buyer-routing.module';
 import { BaseModule } from 'src/app/core/models/base.module';
 import { TranslateService } from '@ngx-translate/core';
 import { translateModule } from 'src/app/core/helpers/translate.helper';
-import { ProductsComponent } from './components/products/products.component';
+import { PurchasedArticlesComponent } from './components/purchased-articles/purchased-articles.component';
+
 @NgModule({
   declarations: [
-    ProductsComponent
+    PurchasedArticlesComponent
   ],
   imports: [
     CommonModule,

@@ -14,8 +14,8 @@
         "store": {
             "baseUrl": "/store"
         },
-        "sold_article": {
-            "baseUrl": "/sold_article"
+        "purchased_articles": {
+            "baseUrl": "/purchased_article"
         }            
     }
 }

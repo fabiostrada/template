@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ProductsComponent } from './components/products/products.component';
+import { PurchasedArticlesComponent } from './components/purchased-articles/purchased-articles.component';
 import { buyerRouting } from './configs/buyer.routing';
 
 const routes: Routes = [
   {
-    path: buyerRouting.products,
-    component: ProductsComponent
+    path: buyerRouting.purchased_articles,
+    component: PurchasedArticlesComponent
   }
 ];
 
