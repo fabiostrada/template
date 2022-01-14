@@ -16,9 +16,8 @@ export class StoreComponent extends BaseComponent implements OnInit  {
   
   public displayedColumns: string[] = ['id', 'name', 'description', 'price', 'amount'];
   public dataSource!: MatTableDataSource<StoreItemDataSource>;    
-
-  paginator!: MatPaginator;
-  sort!: MatSort;
+  public paginator!: MatPaginator;
+  public sort!: MatSort;
 
   @ViewChild(MatPaginator) set matPaginator(mp: MatPaginator) {
     this.paginator = mp;       
@@ -44,9 +43,7 @@ export class StoreComponent extends BaseComponent implements OnInit  {
           takeUntil(this.unsubscribeAll),
           tap((storeItems: Array<StoreItem>) => {
               let storeItemsDataSource: Array<StoreItemDataSource> = StoreItemDataSource.build(storeItems);
-              this.dataSource = new MatTableDataSource(storeItemsDataSource);
-              this.dataSource.paginator = this.paginator;  
-              this.dataSource.sort = this.sort;              
+              this.dataSource = new MatTableDataSource(storeItemsDataSource);              
           })
         ).subscribe();   
   }
