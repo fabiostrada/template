@@ -19,7 +19,7 @@
     }    
 
 
-    //Custom style datasource
+    //Custom style datasource for columns
 
     .mat-column-id {
         width: 10%;
@@ -44,6 +44,19 @@
         width: 15%;
     }     
 
+
+
+    //Custom style datasource for rows
+
+    .mat-row .mat-cell {
+        border-bottom: 1px solid transparent;
+        border-top: 1px solid transparent;
+        cursor: pointer;
+    }
+      
+    .mat-row:hover .mat-cell {
+        border-color: blue;
+    }
 
     
 }
