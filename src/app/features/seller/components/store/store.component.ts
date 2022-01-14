@@ -1,4 +1,4 @@
-import { AfterContentInit, Component, OnInit, ViewChild} from '@angular/core';
+import { Component, OnInit, ViewChild} from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -12,20 +12,26 @@ import { StoreItemDataSource } from '../../model/store.datasource';
   templateUrl: './store.component.html',
   styleUrls: ['./store.component.scss']
 })
-export class StoreComponent extends BaseComponent implements OnInit, AfterContentInit  {
+export class StoreComponent extends BaseComponent implements OnInit  {
   
   public displayedColumns: string[] = ['id', 'name', 'description', 'price', 'amount'];
-  public dataSource!: MatTableDataSource<StoreItemDataSource>;
+  public dataSource!: MatTableDataSource<StoreItemDataSource>;    
 
   paginator!: MatPaginator;
   sort!: MatSort;
 
   @ViewChild(MatPaginator) set matPaginator(mp: MatPaginator) {
-    this.paginator = mp;        
+    this.paginator = mp;       
+    if (!!this.dataSource) {
+      this.dataSource.paginator = this.paginator; 
+    }        
   }
 
-  @ViewChild(MatPaginator) set matSort(st: MatSort) {
+  @ViewChild(MatSort) set matSort(st: MatSort) {
     this.sort = st;    
+    if (!!this.dataSource) {
+      this.dataSource.sort = this.sort; 
+    }  
   }
 
   constructor(private storeService: StoreService) {
@@ -40,13 +46,9 @@ export class StoreComponent extends BaseComponent implements OnInit, AfterConten
               let storeItemsDataSource: Array<StoreItemDataSource> = StoreItemDataSource.build(storeItems);
               this.dataSource = new MatTableDataSource(storeItemsDataSource);
               this.dataSource.paginator = this.paginator;  
-              this.dataSource.sort = this.sort;
+              this.dataSource.sort = this.sort;              
           })
         ).subscribe();   
-  }
-
-  ngAfterContentInit(): void {
-
   }
 
   public applyFilter(event: Event) {
