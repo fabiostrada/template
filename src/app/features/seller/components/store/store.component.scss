@@ -17,8 +17,33 @@
         padding-left: 2rem;
         padding-right: 2rem;
     }    
-    .mat-cell-description {
-        margin-right: 1rem;
-        text-align: justify;
+
+
+    //Custom style datasource
+
+    .mat-column-id {
+        width: 10%;
+        font-weight: bold;                    
     }
+
+    .mat-column-name {                
+        width: 20%;
+    }      
+
+    .mat-column-description {        
+        text-align: justify;
+        width: 40%;
+        padding-right: 2rem;
+    }      
+      
+    .mat-column-price{                
+        width: 15%;        
+    }     
+
+    .mat-column-amount {                
+        width: 15%;
+    }     
+
+
+    
 }
