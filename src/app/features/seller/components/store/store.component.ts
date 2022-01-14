@@ -26,7 +26,7 @@ export class StoreComponent extends DataSourceBaseComponent<StoreItemDataSource>
               let storeItemsDataSource: Array<StoreItemDataSource> = StoreItemDataSource.build(storeItems);
               this.dataSource = new MatTableDataSource(storeItemsDataSource);              
           })
-        ).subscribe();   
+        ).subscribe();    
   }
 
 }
