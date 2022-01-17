@@ -5,6 +5,7 @@ import { BaseModule } from 'src/app/core/models/base.module';
 import { TranslateService } from '@ngx-translate/core';
 import { translateModule } from 'src/app/core/helpers/translate.helper';
 import { PurchasedArticlesComponent } from './components/purchased-articles/purchased-articles.component';
+import { MaterialModule } from './material.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { PurchasedArticlesComponent } from './components/purchased-articles/purc
   imports: [
     CommonModule,
     BuyerRoutingModule,
-    ...translateModule     
+    ...translateModule,
+    ...MaterialModule     
   ]
 })
 export class BuyerModule extends BaseModule { 
