@@ -48,12 +48,4 @@ export class PurchasedArticleService extends HttpService {
         }));         
   }
 
-  /*
-        let callStoreItems2: Observable<HttpResponse<Array<StoreItemApi>>> 
-      = this.httpClient.get<Array<StoreItemApi>>(`${this.baseUrl}${this.serviceUrl()}?idUser=${user.id}`, {observe: 'response'});
-      callStoreItems2.subscribe(result => {
-          console.log('RESULT', result, result.body, result.headers.get('cache-control'));
-      })
-  */
-
 }
