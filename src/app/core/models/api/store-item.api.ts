@@ -1,6 +1,6 @@
 import { Base } from "../base";
 
-export class StoreItemDb extends Base {
+export class StoreItemApi extends Base {
 
     constructor(public override id: number,
                 public idArticle: number,

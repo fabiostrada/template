@@ -1,5 +1,5 @@
 import { isNullOrEmpty } from "../helpers/array.helper";
-import { StoreItemDb } from "./api/store-item.db";
+import { StoreItemApi } from "./api/store-item.api";
 import { Article } from "./Article";
 import { Base } from "./base";
 import { Hash } from "./hash";
@@ -12,18 +12,18 @@ export class StoreItem extends Base {
         super(id);
     }
 
-    public static build(storeItemsDB: Array<StoreItemDb>, articoliHash: Hash<Article>): Array<StoreItem> {
-        if (isNullOrEmpty(storeItemsDB)) {
+    public static build(storeItemsApi: Array<StoreItemApi>, articoliHash: Hash<Article>): Array<StoreItem> {
+        if (isNullOrEmpty(storeItemsApi)) {
             return [];
         }
-        return storeItemsDB.map(storeItem => StoreItem.of(storeItem, articoliHash));
+        return storeItemsApi.map(storeItemApi => StoreItem.of(storeItemApi, articoliHash));
     }
 
-    public static of(storeItemDb: StoreItemDb, articoliHash: Hash<Article>): StoreItem {        
+    public static of(storeItemApi: StoreItemApi, articoliHash: Hash<Article>): StoreItem {        
         return new StoreItem(
-            storeItemDb.id,
-            articoliHash[storeItemDb.idArticle],
-            storeItemDb.amount
+            storeItemApi.id,
+            articoliHash[storeItemApi.idArticle],
+            storeItemApi.amount
         );
     }
 }

@@ -141,7 +141,25 @@
       "id": 3,
       "idArticle": 2,
       "amount": 17,
-      "idUser": 3
+      "idUser": 1
+    },
+    {
+      "id": 4,
+      "idArticle": 4,
+      "amount": 20,
+      "idUser": 1
+    },
+    {
+      "id": 5,
+      "idArticle": 5,
+      "amount": 2,
+      "idUser": 1
+    },
+    {
+      "id": 6,
+      "idArticle": 6,
+      "amount": 7,
+      "idUser": 1
     }
   ]
 }
