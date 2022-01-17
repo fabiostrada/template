@@ -31,7 +31,6 @@ export class PurchasedArticlesComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {    
 
-    // If the user changes the sort order, reset back to the first page.
     this.sort.sortChange.subscribe(() => (this.paginator.pageIndex = 0));
 
     merge(this.sort.sortChange, this.paginator.page)
@@ -39,7 +38,7 @@ export class PurchasedArticlesComponent implements OnInit, AfterViewInit {
         startWith({}),
         switchMap(() => {
           this.isLoadingResults = true;
-          return this.purchasedArticle.getPurchasedArticles(new Paginate(this.paginator.pageIndex, 5))
+          return this.purchasedArticle.getPurchasedArticles(new Paginate(this.paginator.pageIndex + 1, 5))
           .pipe(catchError(() => of(null)));
           /*
           return this.exampleDatabase!.getRepoIssues(
