@@ -31,10 +31,7 @@ export class StoreService extends HttpService {
   }
 
   public store(): Observable<Array<StoreItem>> {
-      let user: User | undefined = this.userService.currentUserAsync();
-      if (!user) {
-        throw new ForbiddenException(ErrorCode.common.errors.forbidden);
-      }
+      let user: User = this.userService.currentUserOrThrow();
       let callAllArticle: Observable<Array<Article>> = this.articleService.allArticles();
       let callStoreItems: Observable<Array<StoreItemDb>> = this.httpClient.get<Array<StoreItemDb>>(`${this.baseUrl}${this.serviceUrl()}?idUser=${user.id}`);
       return forkJoin([callAllArticle, callStoreItems])

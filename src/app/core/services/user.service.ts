@@ -6,7 +6,7 @@ import { AppConfig } from '../configs/app-config';
 import { ErrorCode } from '../configs/error-code';
 import { LocalStorageItem } from '../configs/local-storage-item';
 import { Credential } from '../models/credential';
-import { BadRequestException } from '../models/exception';
+import { BadRequestException, ForbiddenException } from '../models/exception';
 import { Role } from '../models/role';
 import { User } from '../models/user';
 import { UserApi } from '../models/api/user.api';
@@ -39,6 +39,14 @@ export class UserService extends HttpService {
 
   public currentUserAsync(): User | undefined {
     return this.localStorageService.getItem<User>(LocalStorageItem.USER);   
+  }
+
+  public currentUserOrThrow(): User {
+    let user: User | undefined = this.currentUserAsync();
+    if (!user) {
+      throw new ForbiddenException(ErrorCode.common.errors.forbidden);
+    }
+    return user;
   }
 
   public isAdmin(): Observable<boolean> {
